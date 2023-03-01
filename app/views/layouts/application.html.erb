@@ -21,8 +21,5 @@
 
   </head>
 
-  <body>
-    <%= yield %>
-    <div data-controller="client"></div>
-  </body>
+  <%= tag.body(data: { controller: :client, **@client_data_attributes }) %>
 </html>
