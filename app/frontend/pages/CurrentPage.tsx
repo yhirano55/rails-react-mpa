@@ -1,5 +1,6 @@
 import React, { FC } from 'react'
 import { HomeIndexPage } from './home/Index';
+import { BooksIndexPage } from './books/Index';
 
 interface Props {
   actionName: string;
@@ -16,6 +17,7 @@ const createPageId = (controllerPath: string, actionName: string): string => {
 
 const pages = {
   [createPageId("home", "index")]: HomeIndexPage,
+  [createPageId("books", "index")]: BooksIndexPage,
 } as const;
 
 const findPage = (
