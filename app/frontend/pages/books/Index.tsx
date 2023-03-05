@@ -1,5 +1,6 @@
 import React, { FC } from 'react'
 import { Book } from '../../type';
+import { book_path, new_book_path } from '../../routes';
 
 interface Props {
   csrfParam: string;
@@ -31,12 +32,12 @@ export const BooksIndexPage: FC<Props> = ({ initialPageData: { books } }) => {
               </p>
             </div>
             <p>
-              <a href={`/books/${book.id}`}>Show this book</a>
+              <a href={book_path(book.id)}>Show this book</a>
             </p>
           </div>
         ))}
       </div>
-      <a href="books/new">New book</a>
+      <a href={new_book_path()}>New book</a>
     </>
   );
 }

@@ -1,5 +1,6 @@
 import React, { FC, useState } from 'react'
 import { Book } from '../../type';
+import { book_path, books_path } from '../../routes';
 
 interface Props {
   csrfParam: string;
@@ -20,7 +21,7 @@ export const BooksEditPage: FC<Props> = ({ csrfParam, csrfToken, initialPageData
     <>
       <h1>Editing book</h1>
 
-      <form action={`/books/${book.id}`} method="post">
+      <form action={book_path(book.id)} method="post">
         <input type="hidden" name="_method" value="put" />
         <input type="hidden" name={csrfParam} value={csrfToken} />
 
@@ -47,7 +48,7 @@ export const BooksEditPage: FC<Props> = ({ csrfParam, csrfToken, initialPageData
       <br />
 
       <div>
-        <a href={`/books/${book.id}`}>Show this book</a> | <a href={`/books`}>Back to books</a>
+        <a href={book_path(book.id)}>Show this book</a> | <a href={books_path()}>Back to books</a>
       </div>
     </>
   );
