@@ -30,5 +30,3 @@ end
 
 
 gem "vite_rails", "~> 3.0"
-
-gem "turbo-rails", "~> 1.4"

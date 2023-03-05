@@ -29,7 +29,7 @@ export const BooksShowPage: FC<Props> = ({ csrfParam, csrfToken, initialPageData
       <div>
         <a href={`/books/${book.id}/edit`}>Edit this book</a> | <a href={`/books`}>Back to books</a>
 
-        <form action={`/books/${book.id}/`} method="post" data-turbo="false">
+        <form action={`/books/${book.id}/`} method="post">
           <input type="hidden" name="_method" value="delete" />
           <input type="hidden" name={csrfParam} value={csrfToken} />
           <input type="submit" value="Destroy this book" />

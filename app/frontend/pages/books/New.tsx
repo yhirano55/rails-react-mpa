@@ -20,7 +20,7 @@ export const BooksNewPage: FC<Props> = ({ csrfParam, csrfToken, initialPageData:
     <>
       <h1>New book</h1>
 
-      <form action={`/books`} method="post" data-turbo="false">
+      <form action={`/books`} method="post">
         <input type="hidden" name="_method" value="post" />
         <input type="hidden" name={csrfParam} value={csrfToken} />
 
