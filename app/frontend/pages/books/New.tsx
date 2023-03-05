@@ -6,7 +6,8 @@ interface Props {
   csrfParam: string;
   csrfToken: string;
   initialPageData: {
-    book: Book
+    book: Book;
+    errors?: Errors;
   };
 }
 
@@ -24,6 +25,14 @@ export const BooksNewPage: FC<Props> = ({ csrfParam, csrfToken, initialPageData:
       <form action={books_path()} method="post">
         <input type="hidden" name="_method" value="post" />
         <input type="hidden" name={csrfParam} value={csrfToken} />
+
+        { book.errors && (
+          <div style={{ color: 'red' }}>
+            <ul>
+              {book.errors.full_messages.map((message, index) => <li key={index}>{message}</li>)}
+            </ul>
+          </div>
+        )}
 
         <div>
           <label style={{ display: 'block' }}>Title</label>

@@ -51,7 +51,12 @@ class BooksController < ApplicationController
       render_react_component(
         page_name: :new,
         page_data: {
-          book: @book,
+          book: {
+            errors: {
+              full_messages: @book.errors.full_messages,
+            },
+            **@book.attributes
+          },
         },
       )
     end
@@ -65,7 +70,12 @@ class BooksController < ApplicationController
       render_react_component(
         page_name: :edit,
         page_data: {
-          book: @book,
+          book: {
+            errors: {
+              full_messages: @book.errors.full_messages,
+            },
+            **@book.attributes
+          },
         },
       )
     end
