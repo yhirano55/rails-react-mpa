@@ -14,7 +14,7 @@ interface Props {
 export const BooksShowPage: FC<Props> = ({ csrfParam, csrfToken, initialPageData: { flash, book } }) => {
   return (
     <>
-      {flash.map(({ message }) => <p style={{ color: 'green' }}>{message}</p>)}
+      {flash.map(({ message }, index) => <p key={index} style={{ color: 'green' }}>{message}</p>)}
       <div>
         <p>
           <strong>Title:</strong>
