@@ -1,24 +1,24 @@
-# README
+# Rails React MPA
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## About
 
-Things you may want to cover:
+This is an experimental application using TypeScript, React and Stimulus.
 
-* Ruby version
+In replacing Action View with React, we are checking whether it can be configured as a Multiple Page App.
 
-* System dependencies
+## Setup
 
-* Configuration
+```
+$ bundle
+$ npm install
+$ bin/rails db:create db:migrate
+$ bin/rails s
+```
 
-* Database creation
+## Thanks
 
-* Database initialization
+The application structure is based on https://github.com/kjirou/rails-vue-mpa
 
-* How to run the test suite
+## license
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+MTA
