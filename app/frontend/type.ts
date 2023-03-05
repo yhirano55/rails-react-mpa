@@ -6,3 +6,8 @@ export interface Book {
   created_at: Date;
   updated_at: Date;
 }
+
+export interface Flash {
+  type: string;
+  message: string;
+}

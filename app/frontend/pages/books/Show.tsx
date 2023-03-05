@@ -1,18 +1,20 @@
 import React, { FC } from 'react'
-import { Book } from '../../type';
+import { Book, Flash } from '../../type';
 import { books_path, edit_book_path, book_path } from '../../routes';
 
 interface Props {
   csrfParam: string;
   csrfToken: string;
   initialPageData: {
-    book: Book
+    flash: Flash[];
+    book: Book;
   };
 }
 
-export const BooksShowPage: FC<Props> = ({ csrfParam, csrfToken, initialPageData: { book } }) => {
+export const BooksShowPage: FC<Props> = ({ csrfParam, csrfToken, initialPageData: { flash, book } }) => {
   return (
     <>
+      {flash.map(({ message }) => <p style={{ color: 'green' }}>{message}</p>)}
       <div>
         <p>
           <strong>Title:</strong>

@@ -1,18 +1,20 @@
 import React, { FC } from 'react'
-import { Book } from '../../type';
+import { Book, Flash } from '../../type';
 import { book_path, new_book_path } from '../../routes';
 
 interface Props {
   csrfParam: string;
   csrfToken: string;
   initialPageData: {
+    flash: Flash[];
     books: Book[]
   };
 }
 
-export const BooksIndexPage: FC<Props> = ({ initialPageData: { books } }) => {
+export const BooksIndexPage: FC<Props> = ({ initialPageData: { flash, books } }) => {
   return (
     <>
+      {flash.map(({ message }) => <p style={{ color: 'green' }}>{message}</p>)}
       <h1>Books</h1>
       <div id="books">
         {books.map(book => (
