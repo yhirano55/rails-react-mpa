@@ -1,13 +1,5 @@
 import React, { FC } from 'react'
-
-interface Book {
-  id: number;
-  title: string;
-  price: number;
-  description: string;
-  created_at: Date;
-  updated_at: Date;
-}
+import { Book } from '../../type';
 
 interface Props {
   csrfParam: string;

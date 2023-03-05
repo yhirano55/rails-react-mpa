@@ -1,6 +1,11 @@
 import React, { FC } from 'react'
 import { HomeIndexPage } from './home/Index';
-import { BooksIndexPage } from './books/Index';
+import {
+  BooksIndexPage,
+  BooksShowPage,
+  BooksNewPage,
+  BooksEditPage,
+} from './books/';
 
 interface Props {
   actionName: string;
@@ -18,6 +23,9 @@ const createPageId = (controllerPath: string, actionName: string): string => {
 const pages = {
   [createPageId("home", "index")]: HomeIndexPage,
   [createPageId("books", "index")]: BooksIndexPage,
+  [createPageId("books", "show")]: BooksShowPage,
+  [createPageId("books", "new")]: BooksNewPage,
+  [createPageId("books", "edit")]: BooksEditPage,
 } as const;
 
 const findPage = (
