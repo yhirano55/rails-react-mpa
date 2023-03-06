@@ -1,11 +1,9 @@
 import React, { FC } from 'react'
 import { HomeIndexPage } from './home/Index';
-import {
-  BooksIndexPage,
-  BooksShowPage,
-  BooksNewPage,
-  BooksEditPage,
-} from './books/';
+import { BooksIndexPage } from './books/Index';
+import { BooksShowPage } from './books/Show';
+import { BooksNewPage } from './books/New';
+import { BooksEditPage } from './books/Edit';
 
 interface Props {
   actionName: string;
