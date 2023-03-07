@@ -5,13 +5,13 @@ import { books_path } from '../../routes';
 interface Props {
   csrfParam: string;
   csrfToken: string;
-  initialPageData: {
+  initialData: {
     book: Book;
     errors?: Errors;
   };
 }
 
-export const BooksNewPage: FC<Props> = ({ csrfParam, csrfToken, initialPageData: { book } }) => {
+export const BooksNewPage: FC<Props> = ({ csrfParam, csrfToken, initialData: { book } }) => {
   const [form, setForm] = useState({ title: book.title, price: book.price, description: book.description });
 
   const handleChange = (input) => e => {

@@ -5,40 +5,24 @@ class BooksController < ApplicationController
   def index
     @books = Book.all
 
-    render_react_component(
-      page_data: {
-        books: @books,
-      },
-    )
+    render_react_app(books: @books)
   end
 
   # GET /books/1
   def show
-    render_react_component(
-      page_data: {
-        book: @book,
-      },
-    )
+    render_react_app(book: @book)
   end
 
   # GET /books/new
   def new
     @book = Book.new
 
-    render_react_component(
-      page_data: {
-        book: @book,
-      },
-    )
+    render_react_app(book: @book)
   end
 
   # GET /books/1/edit
   def edit
-    render_react_component(
-      page_data: {
-        book: @book,
-      },
-    )
+    render_react_app(book: @book)
   end
 
   # POST /books
@@ -48,15 +32,13 @@ class BooksController < ApplicationController
     if @book.save
       redirect_to @book, notice: "Book was successfully created."
     else
-      render_react_component(
-        page_name: :new,
-        page_data: {
-          book: {
-            errors: {
-              full_messages: @book.errors.full_messages,
-            },
-            **@book.attributes
+      render_react_app(
+        action: :new,
+        book: {
+          errors: {
+            full_messages: @book.errors.full_messages,
           },
+          **@book.attributes
         },
       )
     end
@@ -67,15 +49,13 @@ class BooksController < ApplicationController
     if @book.update(book_params)
       redirect_to @book, notice: "Book was successfully updated."
     else
-      render_react_component(
-        page_name: :edit,
-        page_data: {
-          book: {
-            errors: {
-              full_messages: @book.errors.full_messages,
-            },
-            **@book.attributes
+      render_react_app(
+        action: :edit,
+        book: {
+          errors: {
+            full_messages: @book.errors.full_messages,
           },
+          **@book.attributes
         },
       )
     end

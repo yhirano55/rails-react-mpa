@@ -5,13 +5,13 @@ import { book_path, new_book_path } from '../../routes';
 interface Props {
   csrfParam: string;
   csrfToken: string;
-  initialPageData: {
+  initialData: {
     flash: Flash[];
     books: Book[]
   };
 }
 
-export const BooksIndexPage: FC<Props> = ({ initialPageData: { flash, books } }) => {
+export const BooksIndexPage: FC<Props> = ({ initialData: { flash, books } }) => {
   return (
     <>
       {flash.map(({ message }, index) => <p key={index} style={{ color: 'green' }}>{message}</p>)}
