@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react'
-import { Book } from '../../type';
+import { Book } from '../../types';
 import { book_path, books_path } from '../../routes';
 
 interface Props {

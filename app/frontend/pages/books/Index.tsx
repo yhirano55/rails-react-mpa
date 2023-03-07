@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { Book, Flash } from '../../type';
+import { Book, Flash } from '../../types';
 import { book_path, new_book_path } from '../../routes';
 
 interface Props {
