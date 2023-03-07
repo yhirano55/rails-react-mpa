@@ -14,7 +14,8 @@ export default class extends Controller {
   };
 
   connect() {
-    ReactDOM.createRoot(this.element).render(
+    this.root = ReactDOM.createRoot(this.element);
+    this.root.render(
       <CurrentPage
         actionName={this.actionNameValue}
         controllerPath={this.controllerPathValue}
@@ -24,5 +25,9 @@ export default class extends Controller {
         pageName={this.pageNameValue}
       />
     );
+  }
+
+  disconnect() {
+    this.root.unmount();
   }
 }

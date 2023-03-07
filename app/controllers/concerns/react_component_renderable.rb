@@ -6,7 +6,7 @@ module ReactComponentRenderable
   def render_react_component(page_data: {}, page_name: nil)
     flash_data = flash.map { |(type, message)| { type:, message: } }
 
-    render html: '', layout: true, assigns: {
+    render html: '', layout: 'application', assigns: {
       client_data_attributes: {
         client_controller_path_value: controller_path,
         client_action_name_value: action_name,

@@ -18,8 +18,8 @@
 
       Visit the guide for more information: https://vite-ruby.netlify.app/guide/rails
     -->
-
   </head>
-
-  <%= tag.body(data: { controller: :client, **@client_data_attributes }) %>
+  <body>
+    <%= tag.div(data: { controller: :client, turbo: false, **@client_data_attributes }) %>
+  </body>
 </html>
