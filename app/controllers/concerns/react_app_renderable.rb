@@ -1,4 +1,4 @@
-module ReactComponentRenderable
+module ReactAppRenderable
   extend ActiveSupport::Concern
 
   private

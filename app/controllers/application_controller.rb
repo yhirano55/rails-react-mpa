@@ -1,3 +1,3 @@
 class ApplicationController < ActionController::Base
-  include ReactComponentRenderable
+  include ReactAppRenderable
 end
