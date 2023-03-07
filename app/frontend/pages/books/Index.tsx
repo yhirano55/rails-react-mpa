@@ -34,12 +34,12 @@ export const BooksIndexPage: FC<Props> = ({ initialData: { flash, books } }) => 
               </p>
             </div>
             <p>
-              <a href={book_path(book.id)}>Show this book</a>
+              <a href={book_path(book.id)} data-turbo="true">Show this book</a>
             </p>
           </div>
         ))}
       </div>
-      <a href={new_book_path()}>New book</a>
+      <a href={new_book_path()} data-turbo="true">New book</a>
     </>
   );
 }

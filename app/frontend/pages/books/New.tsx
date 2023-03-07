@@ -59,7 +59,7 @@ export const BooksNewPage: FC<Props> = ({ csrfParam, csrfToken, initialData: { b
       <br />
 
       <div>
-        <a href={books_path()}>Back to books</a>
+        <a href={books_path()} data-turbo="true">Back to books</a>
       </div>
     </>
   );

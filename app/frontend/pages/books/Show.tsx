@@ -30,7 +30,7 @@ export const BooksShowPage: FC<Props> = ({ csrfParam, csrfToken, initialData: { 
         </p>
       </div>
       <div>
-        <a href={edit_book_path(book.id)}>Edit this book</a> | <a href={books_path()}>Back to books</a>
+        <a href={edit_book_path(book.id)} data-turbo="true">Edit this book</a> | <a href={books_path()} data-turbo="true">Back to books</a>
 
         <form action={book_path(book.id)} method="post">
           <input type="hidden" name="_method" value="delete" />

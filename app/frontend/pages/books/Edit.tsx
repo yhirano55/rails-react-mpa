@@ -58,7 +58,7 @@ export const BooksEditPage: FC<Props> = ({ csrfParam, csrfToken, initialData: { 
       <br />
 
       <div>
-        <a href={book_path(book.id)}>Show this book</a> | <a href={books_path()}>Back to books</a>
+        <a href={book_path(book.id)} data-turbo="true">Show this book</a> | <a href={books_path()} data-turbo="true">Back to books</a>
       </div>
     </>
   );
