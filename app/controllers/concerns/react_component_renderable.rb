@@ -3,21 +3,18 @@ module ReactComponentRenderable
 
   private
 
-  def render_react_component(page_data: {}, page_name: nil)
+  def render_react_app(action: nil, **props)
     flash_data = flash.map { |(type, message)| { type:, message: } }
 
-    render html: '', layout: 'application', assigns: {
-      client_data_attributes: {
-        client_controller_path_value: controller_path,
-        client_action_name_value: action_name,
-        # Specify when you want to render a different React page than action_name.
-        # e.g. "create" -> "new", "update" -> "edit"
-        client_page_name_value: page_name,
-        client_csrf_param_value: request_forgery_protection_token,
-        client_csrf_token_value: form_authenticity_token,
-        client_initial_page_data_value: {
+    render 'react_app', assigns: {
+      data_attributes: {
+        controller_path:,
+        action_name: action || action_name,
+        csrf_param: request_forgery_protection_token,
+        csrf_token: form_authenticity_token,
+        react_app_initial_data_value: {
           flash: flash.map { |(type, message)| { type:, message: } },
-          **page_data
+          **props,
         }.to_json.html_safe,
       }
     }

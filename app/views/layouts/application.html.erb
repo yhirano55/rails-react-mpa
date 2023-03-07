@@ -3,6 +3,7 @@
   <head>
     <title>RailsReactMpa</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="turbo-cache-control" content="no-preview">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -20,6 +21,6 @@
     -->
   </head>
   <body>
-    <%= tag.div(data: { controller: :client, turbo: false, **@client_data_attributes }) %>
+    <%= yield %>
   </body>
 </html>

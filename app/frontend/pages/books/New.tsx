@@ -1,22 +1,24 @@
 import React, { FC, useState } from 'react'
-import { Book } from '../../type';
+import { Book } from '../../types';
 import { books_path } from '../../routes';
 
 interface Props {
   csrfParam: string;
   csrfToken: string;
-  initialPageData: {
+  initialData: {
     book: Book;
     errors?: Errors;
   };
 }
 
-export const BooksNewPage: FC<Props> = ({ csrfParam, csrfToken, initialPageData: { book } }) => {
+export const BooksNewPage: FC<Props> = ({ csrfParam, csrfToken, initialData: { book } }) => {
   const [form, setForm] = useState({ title: book.title, price: book.price, description: book.description });
 
   const handleChange = (input) => e => {
     setForm({ ...form, [input] : e.target.value });
   };
+
+  const { full_messages } = book.errors;
 
   return (
     <>
@@ -26,10 +28,10 @@ export const BooksNewPage: FC<Props> = ({ csrfParam, csrfToken, initialPageData:
         <input type="hidden" name="_method" value="post" />
         <input type="hidden" name={csrfParam} value={csrfToken} />
 
-        { book.errors && (
+        { full_messages && (
           <div style={{ color: 'red' }}>
             <ul>
-              {book.errors.full_messages.map((message, index) => <li key={index}>{message}</li>)}
+              {full_messages.map((message, index) => <li key={index}>{message}</li>)}
             </ul>
           </div>
         )}
@@ -57,7 +59,7 @@ export const BooksNewPage: FC<Props> = ({ csrfParam, csrfToken, initialPageData:
       <br />
 
       <div>
-        <a href={books_path()}>Back to books</a>
+        <a href={books_path()} data-turbo="true">Back to books</a>
       </div>
     </>
   );

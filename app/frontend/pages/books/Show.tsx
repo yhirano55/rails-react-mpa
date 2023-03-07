@@ -1,17 +1,17 @@
 import React, { FC } from 'react'
-import { Book, Flash } from '../../type';
+import { Book, Flash } from '../../types';
 import { books_path, edit_book_path, book_path } from '../../routes';
 
 interface Props {
   csrfParam: string;
   csrfToken: string;
-  initialPageData: {
+  initialData: {
     flash: Flash[];
     book: Book;
   };
 }
 
-export const BooksShowPage: FC<Props> = ({ csrfParam, csrfToken, initialPageData: { flash, book } }) => {
+export const BooksShowPage: FC<Props> = ({ csrfParam, csrfToken, initialData: { flash, book } }) => {
   return (
     <>
       {flash.map(({ message }, index) => <p key={index} style={{ color: 'green' }}>{message}</p>)}
@@ -30,7 +30,7 @@ export const BooksShowPage: FC<Props> = ({ csrfParam, csrfToken, initialPageData
         </p>
       </div>
       <div>
-        <a href={edit_book_path(book.id)}>Edit this book</a> | <a href={books_path()}>Back to books</a>
+        <a href={edit_book_path(book.id)} data-turbo="true">Edit this book</a> | <a href={books_path()} data-turbo="true">Back to books</a>
 
         <form action={book_path(book.id)} method="post">
           <input type="hidden" name="_method" value="delete" />

@@ -1,5 +1,5 @@
 export interface Errors {
-  full_messages: string[];
+  full_messages?: string[];
 }
 
 export interface Flash {
