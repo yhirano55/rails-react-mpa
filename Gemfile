@@ -32,3 +32,5 @@ end
 gem "vite_rails", "~> 3.0"
 
 gem "js-routes", "~> 2.2"
+
+gem "turbo-rails", "~> 1.4"

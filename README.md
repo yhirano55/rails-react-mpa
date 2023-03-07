@@ -2,7 +2,7 @@
 
 ## About
 
-This is an experimental application using TypeScript, React and Stimulus.
+This is an experimental application using TypeScript, React and Turbo and Stimulus.
 
 In replacing Action View with React, we are checking whether it can be configured as a Multiple Page App.
 
