@@ -9,5 +9,10 @@ interface Props {
 }
 
 export const HomeIndexPage: FC<Props> = ({ initialData: { name } }) => {
-  return <div>Hello {name}!</div>;
+  return (
+    <div>
+      <h1>Hello {name}!</h1>
+      <a href="/books">Go Crud Sample</a>
+    </div>
+  );
 }
