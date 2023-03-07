@@ -17,6 +17,8 @@ export const BooksEditPage: FC<Props> = ({ csrfParam, csrfToken, initialData: { 
     setForm({ ...form, [input] : e.target.value });
   };
 
+  const { full_messages } = book.errors;
+
   return (
     <>
       <h1>Editing book</h1>
@@ -25,10 +27,10 @@ export const BooksEditPage: FC<Props> = ({ csrfParam, csrfToken, initialData: { 
         <input type="hidden" name="_method" value="put" />
         <input type="hidden" name={csrfParam} value={csrfToken} />
 
-        { book.errors && (
+        { full_messages && (
           <div style={{ color: 'red' }}>
             <ul>
-              {book.errors.full_messages.map((message, index) => <li key={index}>{message}</li>)}
+              {full_messages.map((message, index) => <li key={index}>{message}</li>)}
             </ul>
           </div>
         )}
