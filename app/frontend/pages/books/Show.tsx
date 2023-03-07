@@ -1,6 +1,7 @@
 import React, { FC } from 'react'
 import { Book, Flash } from '../../types';
 import { books_path, edit_book_path, book_path } from '../../routes';
+import { LinkTo } from '../../components/LinkTo';
 
 interface Props {
   csrfParam: string;
@@ -30,7 +31,7 @@ export const BooksShowPage: FC<Props> = ({ csrfParam, csrfToken, initialData: { 
         </p>
       </div>
       <div>
-        <a href={edit_book_path(book.id)} data-turbo="true">Edit this book</a> | <a href={books_path()} data-turbo="true">Back to books</a>
+        <LinkTo url={edit_book_path(book.id)} text="Edit this book" /> | <LinkTo url={books_path()} text="Back to books" />
 
         <form action={book_path(book.id)} method="post">
           <input type="hidden" name="_method" value="delete" />

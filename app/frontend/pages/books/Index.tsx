@@ -1,6 +1,7 @@
 import React, { FC } from 'react'
 import { Book, Flash } from '../../types';
 import { book_path, new_book_path } from '../../routes';
+import { LinkTo } from '../../components/LinkTo';
 
 interface Props {
   csrfParam: string;
@@ -34,12 +35,12 @@ export const BooksIndexPage: FC<Props> = ({ initialData: { flash, books } }) => 
               </p>
             </div>
             <p>
-              <a href={book_path(book.id)} data-turbo="true">Show this book</a>
+              <LinkTo url={book_path(book.id)} text="Show this book" />
             </p>
           </div>
         ))}
       </div>
-      <a href={new_book_path()} data-turbo="true">New book</a>
+      <LinkTo url={new_book_path()} text="New book" />
     </>
   );
 }

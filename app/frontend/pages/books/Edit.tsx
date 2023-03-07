@@ -1,6 +1,7 @@
 import React, { FC, useState } from 'react'
 import { Book } from '../../types';
 import { book_path, books_path } from '../../routes';
+import { LinkTo } from '../../components/LinkTo';
 
 interface Props {
   csrfParam: string;
@@ -58,7 +59,7 @@ export const BooksEditPage: FC<Props> = ({ csrfParam, csrfToken, initialData: { 
       <br />
 
       <div>
-        <a href={book_path(book.id)} data-turbo="true">Show this book</a> | <a href={books_path()} data-turbo="true">Back to books</a>
+        <LinkTo url={book_path(book.id)} text="Show this book" /> | <LinkTo url={books_path()} text="Back to books" />
       </div>
     </>
   );
